@@ -1,0 +1,2 @@
+Portfolio server listening on http://localhost:3000
+Stripe: NOT configured (set STRIPE_SECRET_KEY)

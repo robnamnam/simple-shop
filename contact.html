@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact | Artwork Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <script>
+        // Apply saved theme before paint to avoid FOUC.
+        try {
+            var t = localStorage.getItem('portfolio:theme');
+            if (t === 'dark') document.documentElement.setAttribute('data-theme', 'dark');
+        } catch (_) {}
+    </script>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">ARTWORK</div>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html" class="active">Contact</a></li>
+                <li>
+                    <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Toggle dark mode" title="Toggle dark mode">
+                        <span id="theme-toggle-icon" aria-hidden="true">&#9728;</span>
+                    </button>
+                </li>
+                <li>
+                    <a href="#" id="cart-button" class="cart-button" aria-label="Open cart">
+                        <span class="cart-icon" aria-hidden="true">&#x1F6D2;</span>
+                        <span id="cart-count" class="cart-count" style="display:none;">0</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="page-content">
+        <section class="contact-section">
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h1>Get in Touch</h1>
+                    <p>Interested in a commission or a collaboration? I'd love to hear from you.</p>
+                    <div class="contact-details">
+                        <p>Email: hello@artwork-portfolio.com</p>
+                        <p>Instagram: @artist_handle</p>
+                        <p>Twitter: @artist_handle</p>
+                    </div>
+                </div>
+                <div class="contact-form-container">
+                    <form class="contact-form">
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Cart Drawer -->
+    <div id="cart-drawer-backdrop" class="cart-drawer-backdrop"></div>
+    <aside id="cart-drawer" class="cart-drawer" aria-hidden="true">
+        <header class="cart-drawer-header">
+            <h2>Your Cart</h2>
+            <button id="cart-close" class="cart-drawer-close" aria-label="Close cart">&#x2715;</button>
+        </header>
+        <div class="cart-drawer-body">
+            <p id="cart-empty" class="cart-empty">Your cart is empty.</p>
+            <div id="cart-items"></div>
+        </div>
+        <footer class="cart-drawer-footer">
+            <div class="cart-drawer-totals">
+                <span>Subtotal</span>
+                <span id="cart-total">€ 0,00</span>
+            </div>
+            <button id="cart-checkout" class="btn-checkout" disabled>Checkout</button>
+        </footer>
+    </aside>
+
+    <div id="cart-toast" class="cart-toast"></div>
+
+    <footer>
+        <p>&copy; 2026 Artwork Portfolio. Built with simplicity.</p>
+    </footer>
+
+    <script src="cart.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

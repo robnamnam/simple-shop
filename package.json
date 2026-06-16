@@ -1,0 +1,17 @@
+{
+  "name": "portfolio",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Folder-driven artwork portfolio with cart, inventory, and Stripe Checkout. See AGENTS.md and CONTRIBUTING.md.",
+  "scripts": {
+    "build": "node tools/build-manifest.js",
+    "start": "node server/server.js",
+    "dev": "node tools/build-manifest.js && node server/server.js"
+  },
+  "dependencies": {
+    "better-sqlite3": "^11.0.0",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "stripe": "^16.0.0"
+  }
+}
