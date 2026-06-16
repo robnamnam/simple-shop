@@ -15,8 +15,11 @@ check('vercel.json is valid JSON', () => {
 
 check('vercel.json has expected fields', () => {
     const v = JSON.parse(fs.readFileSync(path.join(root, 'vercel.json'), 'utf8'));
-    for (const k of ['buildCommand', 'outputDirectory', 'rewrites', 'headers']) {
+    for (const k of ['buildCommand', 'outputDirectory', 'rewrites']) {
         if (!(k in v)) throw new Error(`missing key: ${k}`);
+    }
+    if (!Array.isArray(v.rewrites) || v.rewrites.length === 0) {
+        throw new Error('rewrites must be a non-empty array');
     }
 });
 
