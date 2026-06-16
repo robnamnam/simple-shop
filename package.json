@@ -5,8 +5,12 @@
   "description": "Folder-driven artwork portfolio with cart, inventory, and Stripe Checkout. See AGENTS.md and CONTRIBUTING.md.",
   "scripts": {
     "build": "node tools/build-manifest.js",
+    "vercel-build": "node tools/build-manifest.js",
     "start": "node server/server.js",
     "dev": "node tools/build-manifest.js && node server/server.js"
+  },
+  "engines": {
+    "node": ">=20.0.0"
   },
   "dependencies": {
     "better-sqlite3": "^11.0.0",
